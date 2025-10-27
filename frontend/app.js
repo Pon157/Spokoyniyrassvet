@@ -35,15 +35,10 @@ class AuthApp {
     }
 
     showForm(formType) {
-        // Скрываем все формы
         document.querySelectorAll('.form-container').forEach(form => {
             form.classList.remove('active');
         });
-
-        // Показываем нужную форму
         document.getElementById(`${formType}-form`).classList.add('active');
-        
-        // Очищаем сообщения
         this.hideMessage();
     }
 
@@ -70,9 +65,8 @@ class AuthApp {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user', JSON.stringify(data.user));
                 
-                // Через 1 секунду переходим в чат
                 setTimeout(() => {
-                    this.enterChat();
+                    window.location.href = 'chat.html';
                 }, 1000);
             } else {
                 this.showMessage(data.error || 'Ошибка входа', 'error');
@@ -109,7 +103,7 @@ class AuthApp {
                 localStorage.setItem('user', JSON.stringify(data.user));
                 
                 setTimeout(() => {
-                    this.enterChat();
+                    window.location.href = 'chat.html';
                 }, 1500);
             } else {
                 this.showMessage(data.error || 'Ошибка регистрации', 'error');
@@ -126,17 +120,8 @@ class AuthApp {
         const user = localStorage.getItem('user');
         
         if (token && user) {
-            this.currentUser = JSON.parse(user);
-            this.enterChat();
+            window.location.href = 'chat.html';
         }
-    }
-
-    enterChat() {
-        // Пока просто показываем сообщение
-        this.showMessage(`Добро пожаловать в чат, ${this.currentUser.username}!`, 'success');
-        
-        // TODO: Здесь будет переход в интерфейс чата
-        console.log('Переход в чат:', this.currentUser);
     }
 
     showMessage(text, type) {
@@ -170,7 +155,7 @@ class AuthApp {
     }
 }
 
-// Запускаем приложение когда страница загрузится
+// Запускаем приложение
 document.addEventListener('DOMContentLoaded', () => {
     new AuthApp();
 });
