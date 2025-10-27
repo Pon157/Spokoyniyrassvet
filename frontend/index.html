@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чат Система</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>💬 Чат Система</h1>
+    <div class="warning">
+        <strong>Внимание:</strong> Это фронтенд часть приложения. 
+        Для полной работы необходимо запустить бэкенд сервер локально.
+    </div>
+    
+    <h2>Страницы приложения:</h2>
+    <div>
+        <a href="login.html" class="btn">Вход / Регистрация</a>
+        <a href="chat.html" class="btn">Чат (требуется авторизация)</a>
+    </div>
+    
+    <div style="margin-top: 30px; text-align: left;">
+        <h3>Как запустить локально:</h3>
+        <ol>
+            <li>Скачай весь проект</li>
+            <li>Запусти бэкенд: <code>cd backend && npm run dev</code></li>
+            <li>Открой <code>frontend/login.html</code> в браузере</li>
+        </ol>
+    </div>
+</body>
+</html>
